@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "270454800639",
+    "project_id": "interest-studio",
+    "storage_bucket": "interest-studio.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:270454800639:android:44b093d1d8d9be2af60cca",
+        "android_client_info": {
+          "package_name": "com.MihirDharaiya.interest_studio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "270454800639-645qaab66f5ocejcl6qqgc9i774t2j0n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBt2t_INnzt36fh8BQZ55ZUtPpWJi9R1Bk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "270454800639-645qaab66f5ocejcl6qqgc9i774t2j0n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
