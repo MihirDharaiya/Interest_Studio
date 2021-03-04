@@ -1,30 +1,45 @@
 import 'package:flutter/material.dart';
-class Fields extends StatelessWidget {
-  Fields({this.string ,this.s,this.press,this.inputType});
+import 'package:interest_studio/components/SizeConfig.dart';
+import 'package:interest_studio/constants.dart';
+class Fields extends StatefulWidget {
+  Fields({this.string ,this.s,this.press,this.inputType,this.icons});
   final String string;
+
   final bool s;
   final Function press;
   final TextInputType inputType;
+  final Widget icons;
+
+  @override
+  _FieldsState createState() => _FieldsState();
+}
+
+class _FieldsState extends State<Fields> {
+  final _formKey = GlobalKey<FormState>();
+  final List<String> errors = [];
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 5.0,horizontal: 20),
-      child: TextField(
-        keyboardType: inputType,
-        onChanged: press,
+      child: TextFormField(
+
+        keyboardType: widget.inputType,
+        onChanged: widget.press,
         style: TextStyle(
-          height: 0.5,
+          color: Colors.black,
+          fontSize: 15.0
         ),
         textAlign: TextAlign.center,
-        obscureText: s,
+        obscureText: widget.s,
         decoration: InputDecoration(
+          hintText: widget.string,
+          icon: widget.icons ,
           hintStyle: TextStyle(
-            color: Colors.white,
-            fontSize: 17.0,
+            color: Colors.black,
+
           ),
           border: OutlineInputBorder(),
-          // labelText: 'Password',
-          hintText: string,
+           // labelText: 'Password',
         ),
       ),
     );

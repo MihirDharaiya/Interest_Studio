@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:interest_studio/constants.dart';
 import 'info/CpInfo.dart';
 import 'file:///E:/android/androidProjects/interest_studio/lib/info/CodInfo.dart';
 import 'file:///E:/android/androidProjects/interest_studio/lib/info/CppInfo.dart';
@@ -13,7 +14,6 @@ import 'screens/homePage.dart';
 import 'screens/welcomePage.dart';
 import 'screens/SignupPage.dart';
 import 'moreButton/EsportsMore.dart';
-import 'screens/homePage.dart';
 import 'moreButton/RecipesMore.dart';
 import 'moreButton/SportsMore.dart';
 import 'moreButton/DanceMore.dart';
@@ -36,6 +36,9 @@ import 'info/HiphopInfo.dart';
 import 'info/FolkInfo.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/widgets.dart';
+import 'components/theme.dart';
+
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -48,13 +51,14 @@ class InterestStudio extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return MaterialApp(
+      theme: theme(),
       debugShowCheckedModeBanner: false,
       initialRoute: WelcomePage.id,
       routes: {
         WelcomePage.id:(context)=> WelcomePage(),
         LoginPage.id:(context)=>LoginPage(),
         SignupPage.id:(context)=>SignupPage(),
-        HomePage.id:(context)=>HomePage(),
+        Home_Page.id:(context)=>Home_Page(),
         EsportsMore.id:(context)=>EsportsMore(),
         DanceMore.id:(context)=>DanceMore(),
         ProgrammingMore.id:(context)=>ProgrammingMore(),
@@ -89,4 +93,5 @@ class InterestStudio extends StatelessWidget {
     );
   }
 }
+
 

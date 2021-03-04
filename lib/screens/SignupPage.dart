@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:interest_studio/screens/loginPage.dart';
 import 'file:///E:/android/androidProjects/interest_studio/lib/components/Reusable.dart';
 import '../main.dart';
-import '../components/rounded_button.dart';
+import 'package:interest_studio/constants.dart';
+import 'package:flutter/widgets.dart';
+import 'package:interest_studio/components/SizeConfig.dart';
+
 
 class SignupPage extends StatefulWidget {
   static const String id = 'signUp_page';
@@ -19,66 +22,94 @@ class _SignupPageState extends State<SignupPage> {
   int number;
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return Scaffold(
-      backgroundColor: Colors.teal,
+      appBar: AppBar(
+        title: Center(child: Text('SignUp')),
+      ),
       body: SafeArea(
-        child: Column(
-          // mainAxisAlignment: MainAxisAlignment.center,
-          // crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Container(
-              padding: EdgeInsets.all(40.0),
-              margin: EdgeInsets.only(top: 2.0),
-              child: Image.asset('images/interest studio final.png'),
-            ),
-            // Fields(
-            //   string: 'Enter Your Name ', s: false,
-            //   press: (value){
-            //     name = value;
-            //   },
-            // ),
-            // Fields(
-            //   string: 'Enter your Phone No', s: false,
-            //   press: (value){
-            //     number = value;
-            //   },
-            // ),
-
-            Fields(
-              string: 'Enter Your Email', s: false,
-              inputType: TextInputType.emailAddress,
-              press: (value){
-                email = value;
-              },
-            ),
-            Fields(
-              string: 'Create Password', s: true,
-              press: (value){
-                password = value;
-              },
-            ),
-            Fields(
-              string: 'Confirm Password', s: true,
-              press: (value) {
-                password = value;
-              }
-            ),
-            RoundedButton(
-              title: 'Register',
-              colour: Colors.green,
-              onPressed: () async {
-                try{
-                  final newUser = _auth.createUserWithEmailAndPassword(email: email, password: password);
-                  if(newUser != null){
-                    Navigator.pushNamed(context, LoginPage.id);
-                  }
-                }
-                catch(e){
-                  print(e);
-                }
+        child: SingleChildScrollView(
+          child: Column(
+            // mainAxisAlignment: MainAxisAlignment.center,
+            // crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Container(
+                padding: EdgeInsets.all(40.0),
+                margin: EdgeInsets.only(top: 2.0),
+                child: Image.asset('images/interest studio final.png'),
+              ),
+              Text('Hello There',style: TextStyle(color: Colors.black,
+                  fontSize: getProportionateScreenWidth(25),
+                fontWeight: FontWeight.bold,
+              ),
+              ),
+              Text('SignUp With Your Details As Mentioned Below :::',
+              textAlign: TextAlign.center,
+              ),
+              SizedBox(height: getProportionateScreenHeight(50.0),
+              ),
+              Fields(
+                icons: Icon(Icons.person,
+                color: kPrimaryColor),
+                string: 'Enter Your Name ', s: false,
+                press: (value){
+                  name = value;
                 },
-            )
-          ],
+              ),
+              Fields(
+                icons: Icon(Icons.phone,
+                color: kPrimaryColor),
+                string: 'Enter your Phone No', s: false,
+                press: (value){
+                  number = value;
+                },
+              ),
+
+              Fields(
+                icons: Icon(Icons.email,
+                color: kPrimaryColor),
+                string: 'Enter Your Email',
+                s: false,
+                inputType: TextInputType.emailAddress,
+                press: (value){
+                  email = value;
+                },
+              ),
+              Fields(
+                icons: Icon(Icons.lock,
+                color: kPrimaryColor),
+                string: 'Create Password', s: true,
+                press: (value){
+                  password = value;
+                },
+              ),
+              Fields(
+                icons: Icon(Icons.lock,
+                color: kPrimaryColor),
+                string: 'Confirm Password', s: true,
+                press: (value) {
+                  password = value;
+                }
+              ),
+              Padding(
+                padding:  EdgeInsets.all(20.0),
+                child: SizedBox(
+                  width: double.infinity,
+                  height: getProportionateScreenHeight(56),
+                  child: FlatButton(
+                    color: kPrimaryColor,
+                    onPressed: (){
+                      Navigator.pushNamed(context, LoginPage.id);
+                    }, child: Text('LOGIN',
+                    style: TextStyle(fontSize: getProportionateScreenWidth(18.0),
+                        color: Colors.white
+                    ),
+                  ),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
