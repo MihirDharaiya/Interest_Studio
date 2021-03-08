@@ -4,8 +4,10 @@ import 'package:interest_studio/constants.dart';
 import '../components/rounded_button.dart';
 import '../components/Reusable.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'homePage.dart';
+import 'HomePage.dart';
 import 'package:interest_studio/constants.dart';
+import 'package:interest_studio/screens/HomePage.dart';
+
 
 class LoginPage extends StatefulWidget {
   static const String id = 'login_page';
@@ -90,7 +92,7 @@ class _LoginPageState extends State<LoginPage> {
                   child: FlatButton(
                     color: kPrimaryColor,
                     onPressed: (){
-                      Navigator.pushNamed(context, Home_Page.id);
+                      Navigator.pushNamed(context, Home_page.id);
                     }, child: Text('LOGIN',
                     style: TextStyle(fontSize: getProportionateScreenWidth(18.0),
                         color: Colors.white

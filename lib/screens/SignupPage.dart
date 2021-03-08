@@ -1,11 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:interest_studio/screens/loginPage.dart';
-import 'file:///E:/android/androidProjects/interest_studio/lib/components/Reusable.dart';
 import '../main.dart';
 import 'package:interest_studio/constants.dart';
 import 'package:flutter/widgets.dart';
 import 'package:interest_studio/components/SizeConfig.dart';
+import 'package:interest_studio/components/Reusable.dart';
 
 
 class SignupPage extends StatefulWidget {
