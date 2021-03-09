@@ -1,4 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:interest_studio/info/EsportsInfo/CodInfo.dart';
+import 'package:interest_studio/info/EsportsInfo/CsgoInfo.dart';
+import 'package:interest_studio/info/EsportsInfo/GtaInfo.dart';
+import 'package:interest_studio/info/EsportsInfo/PubgInfo.dart';
+import 'file:///E:/android/androidProjects/Interest_Studio2/lib/info/EsportsInfo/ValoInfo.dart';
 import 'TrendingInterest.dart';
 import 'package:interest_studio/components/ReusableContainer.dart';
 class EsportsAll extends StatefulWidget {
@@ -44,24 +50,39 @@ class _EsportsAllState extends State<EsportsAll> {
           child: Column(
             children: [
               ReusableContainer(
+                onTap: (){
+                  Navigator.pushNamed(context, ValoInfo.id);
+                },
                 title: 'VALORANT',
                 image: 'https://images.unsplash.com/photo-1538481199705-c710c4e965fc?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2032&q=80',
               ),
 
               ReusableContainer(
+                onTap: (){
+                    Navigator.pushNamed(context, CsgoInfo.id);
+                },
                 title: 'CSGO',
                 image: 'https://images.unsplash.com/photo-1599399056366-e318f572dbba?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8Y291bnRlciUyMHN0cmlrZXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
               ),
 
               ReusableContainer(
+                onTap: (){
+                  Navigator.pushNamed(context, PubgInfo.id);
+                },
                 title: 'PUBG',
                 image: 'https://images.unsplash.com/photo-1564049489314-60d154ff107d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1061&q=80',
               ),
               ReusableContainer(
+                onTap: (){
+                  Navigator.pushNamed(context, GtaInfo.id);
+                },
                 title: 'GTA',
                 image: 'https://images.unsplash.com/photo-1599604079629-bb0dfe72f847?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NXx8Z3RhNXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
               ),
               ReusableContainer(
+                onTap: (){
+                    Navigator.pushNamed(context, CodInfo.id);
+                },
                 title: 'CALL OF DUTY',
                 image: 'https://images.unsplash.com/photo-1604911073747-08778101b76d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8Y2FsbCUyMG9mJTIwZHV0eXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
               ),

@@ -3,12 +3,13 @@ import 'package:flutter/material.dart';
 class ReusableContainer extends StatelessWidget {
 
   final String image,title;
+  final Function onTap;
 
-  ReusableContainer({this.title,this.image,});
+  ReusableContainer({this.title,this.image,this.onTap});
   @override
   Widget build(BuildContext context) {
     return  GestureDetector(
-      onTap: () {},
+      onTap: onTap,
       child: Container(
         padding: EdgeInsets.all(7),
         height: 190,
@@ -45,26 +46,26 @@ class ReusableContainer extends StatelessWidget {
                 ),
               ),
             ),
-            Container(
-              alignment: Alignment.bottomRight,
-              // height: 30,
-              margin: EdgeInsets.only(bottom: 18.0, right: 10.0),
-
-              child: FlatButton(
-                  minWidth: 60.0,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20.0)),
-                  color: Colors.white,
-                  onPressed: () {},
-                  child: Text(
-                    'FOLLOW',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 10.0,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )),
-            ),
+            // Container(
+            //   alignment: Alignment.bottomRight,
+            //   // height: 30,
+            //   margin: EdgeInsets.only(bottom: 18.0, right: 10.0),
+            //
+            //   child: FlatButton(
+            //       minWidth: 60.0,
+            //       shape: RoundedRectangleBorder(
+            //           borderRadius: BorderRadius.circular(20.0)),
+            //       color: Colors.white,
+            //       onPressed: () {},
+            //       child: Text(
+            //         'FOLLOW',
+            //         style: TextStyle(
+            //           color: Colors.black,
+            //           fontSize: 10.0,
+            //           fontWeight: FontWeight.bold,
+            //         ),
+            //       )),
+            // ),
           ],
         ),
       ),);

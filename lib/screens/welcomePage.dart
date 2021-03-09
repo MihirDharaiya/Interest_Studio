@@ -70,7 +70,7 @@ class _WelcomePageState extends State<WelcomePage> {
                             width: getProportionateScreenWidth(4.0)
                           ),
                           onPressed:(){
-                            Navigator.pushNamed(context, SignupPage.id);
+                            Navigator.pushNamed(context, SignUpPage.id);
                           }, child: Text('REGISTER',
                         style: TextStyle(
                           color: kPrimaryColor,

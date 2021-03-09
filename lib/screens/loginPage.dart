@@ -91,8 +91,16 @@ class _LoginPageState extends State<LoginPage> {
                   height: getProportionateScreenHeight(56),
                   child: FlatButton(
                     color: kPrimaryColor,
-                    onPressed: (){
-                      Navigator.pushNamed(context, Home_page.id);
+                    onPressed: () async {
+                      try{
+                          final user = await _auth.signInWithEmailAndPassword(email: email, password: password);
+                          if(user != null){
+                            Navigator.pushNamed(context, HomePage.id);
+                          }
+                      }
+                      catch(e){
+                        print(e);
+                      }
                     }, child: Text('LOGIN',
                     style: TextStyle(fontSize: getProportionateScreenWidth(18.0),
                         color: Colors.white

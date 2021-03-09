@@ -1,25 +1,31 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:interest_studio/screens/loginPage.dart';
-import '../main.dart';
+
 import 'package:interest_studio/constants.dart';
 import 'package:flutter/widgets.dart';
 import 'package:interest_studio/components/SizeConfig.dart';
 import 'package:interest_studio/components/Reusable.dart';
 
 
-class SignupPage extends StatefulWidget {
+
+class SignUpPage extends StatefulWidget {
   static const String id = 'signUp_page';
   @override
-  _SignupPageState createState() => _SignupPageState();
+  _SignUpPageState createState() => _SignUpPageState();
 }
 
-class _SignupPageState extends State<SignupPage> {
-  final _auth = FirebaseAuth.instance;
-  String name;
+class _SignUpPageState extends State<SignUpPage> {
+
+  FirebaseAuth _auth = FirebaseAuth.instance;
   String email;
   String password;
-  int number;
+  String confirmPassword;
+  String name;
+  String number;
+  // DatabaseReference dbRef = FirebaseDatabase.instance.reference().child("Users");
+
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -88,7 +94,7 @@ class _SignupPageState extends State<SignupPage> {
                 color: kPrimaryColor),
                 string: 'Confirm Password', s: true,
                 press: (value) {
-                  password = value;
+                  confirmPassword = value;
                 }
               ),
               Padding(
@@ -97,10 +103,20 @@ class _SignupPageState extends State<SignupPage> {
                   width: double.infinity,
                   height: getProportionateScreenHeight(56),
                   child: FlatButton(
+                    onPressed: () async {
+                      try {
+
+                          final newUser = await _auth.createUserWithEmailAndPassword(email: email, password: password);
+                          if(newUser != null){
+                              Navigator.pushNamed(context, LoginPage.id);
+                          }
+                      }
+                      catch(e){
+                        print(e);
+                      }
+                    },
                     color: kPrimaryColor,
-                    onPressed: (){
-                      Navigator.pushNamed(context, LoginPage.id);
-                    }, child: Text('LOGIN',
+                    child: Text('LOGIN',
                     style: TextStyle(fontSize: getProportionateScreenWidth(18.0),
                         color: Colors.white
                     ),

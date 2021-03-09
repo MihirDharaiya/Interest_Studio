@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:interest_studio/components/ReusableContainer.dart';
+import 'package:interest_studio/info/SportsInfo/BasketBallInfo.dart';
+import 'package:interest_studio/info/SportsInfo/CricketInfo.dart';
+import 'package:interest_studio/info/SportsInfo/FootBallInfo.dart';
+import 'package:interest_studio/info/SportsInfo/HockeyInfo.dart';
+import 'package:interest_studio/info/SportsInfo/VolleyBallInfo.dart';
 class SportsAll extends StatefulWidget {
   static const String id= 'Sports_all';
   @override
@@ -43,24 +48,39 @@ class _SportsAllState extends State<SportsAll> {
           child: Column(
             children: [
               ReusableContainer(
+                onTap: (){
+                  Navigator.pushNamed(context, CricketInfo.id);
+                },
                 title: 'CRICKET',
                 image: 'https://images.unsplash.com/photo-1611424286271-876b84c07f30?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTh8fGNyaWNrZXR8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
               ),
 
               ReusableContainer(
+                onTap: (){
+                  Navigator.pushNamed(context, FootBallInfo.id);
+                },
                 title: 'FOOTBALL',
                 image: 'https://images.unsplash.com/photo-1553778263-73a83bab9b0c?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8Zm9vdGJhbGx8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
               ),
 
               ReusableContainer(
+                onTap: (){
+                  Navigator.pushNamed(context, BasketBallInfo.id);
+                },
                 title: 'BASKETBALL',
                 image: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8YmFza2V0YmFsbHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
               ),
               ReusableContainer(
+                onTap: (){
+                    Navigator.pushNamed(context, HockeyInfo.id);
+                },
                 title: 'HOCKEY',
                 image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfciZgh3DyoQDcYjZL3iKvOf1CWqq8rfSO6w&usqp=CAU',
               ),
               ReusableContainer(
+                onTap: (){
+                    Navigator.pushNamed(context, VolleyBallInfo.id);
+                },
                 title: 'VOLLEY BALL',
                 image: 'https://images.unsplash.com/photo-1593787406536-3676a152d9cb?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8dm9sbGV5YmFsbHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
               ),

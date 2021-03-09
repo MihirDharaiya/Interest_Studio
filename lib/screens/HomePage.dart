@@ -1,53 +1,48 @@
-
 import 'package:interest_studio/InterestHorizontalSlider.dart';
-
-import 'package:interest_studio/helper/BodyData.dart';
-import 'package:interest_studio/helper/Data.dart';
-import 'package:interest_studio/models/CategoryModel.dart';
+import 'package:interest_studio/components/MainDrawer.dart';
 import 'package:interest_studio/models/InterestModel.dart';
-
-
-
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:interest_studio/InterestHeading.dart';
-
-
 import 'package:interest_studio/constants.dart';
-import 'package:interest_studio/info/DanceAll.dart';
-import 'package:interest_studio/info/SportsAll.dart';
-import 'package:interest_studio/info/ProgrammingAll.dart';
-import 'package:interest_studio/info/RecipesAll.dart';
-import 'package:interest_studio/info/EsportsAll.dart';
-import 'package:interest_studio/screens/SignupPage.dart';
-
+import 'package:flutter/material.dart';
 import 'package:interest_studio/info/TrendingInterest.dart';
+import 'package:firebase_auth/firebase_auth.dart' as auth;
+auth.User loggedInUser;
 
 
-
-
-class Home_page extends StatefulWidget {
+class HomePage extends StatefulWidget {
   static const String id = 'home_page';
   @override
-  _Home_pageState createState() => _Home_pageState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _Home_pageState extends State<Home_page> {
+class _HomePageState extends State<HomePage> {
+  final  _auth = auth.FirebaseAuth.instance;
   // List<CategoryModel> categories = new List<CategoryModel>();
   List<InterestModel> interests = new List<InterestModel>();
 
-  // @override
-  // void initState() {
-  //   // TODO: implement initState
-  //   super.initState();
-  //   // categories= getCategories();
-  //   interests = getInterest();
-  // }
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getCurrentUser();
+  }
+  void getCurrentUser(){
+try{
+final user =_auth.currentUser;
+if(user != null){
+loggedInUser =user;
+}
+}
+catch(e){
+  print(e);
+}
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      drawer: MainDrawer(),
       appBar: AppBar(
         automaticallyImplyLeading: false,
         elevation: 1.0,
